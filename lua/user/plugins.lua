@@ -62,8 +62,10 @@ return packer.startup(function(use)
 
   -- Colorschemes
   -- Using Packer:
-  use 'Mofiqul/dracula.nvim'
-
+  -- use 'Mofiqul/dracula.nvim'
+    -- Colorschemes
+  use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
+  use { "lunarvim/darkplus.nvim", branch = "neovim-0.7" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" } -- The completion plugin
@@ -104,6 +106,10 @@ return packer.startup(function(use)
 
   use { use 'mfussenegger/nvim-jdtls' }
 
+
+
+  --Copilot
+  use {"github/copilot.vim"}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
