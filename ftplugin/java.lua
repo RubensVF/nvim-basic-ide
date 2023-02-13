@@ -10,7 +10,7 @@ local JDTLS_LOCATION = vim.fn.stdpath "data" .. "/mason/packages/jdtls"
 -- Data directory - change it to your liking
 local WORKSPACE_PATH = vim.fn.stdpath "data" .. "/workspace/java/"
 
--- JAVA 17 or grater location 
+-- Java version to run jdtls only supports java 11 or grater 
 local JAVA = "java"
 
 
@@ -51,11 +51,11 @@ local config = {
     "-jar",
     vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
     "-configuration",
-    JDTLS_LOCATION .. "/config_" .. "win",
+    vim.fn.glob(JDTLS_LOCATION .. "/config_" .. SYSTEM),
     "-data",
     workspace_dir,
   },
-  
+
   on_attach = require("user.lsp.handlers").on_attach,
   capabilities = require("user.lsp.handlers").capabilities,
 

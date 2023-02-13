@@ -3,8 +3,6 @@ if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
-
 telescope.setup {
   defaults = {
 
@@ -13,13 +11,13 @@ telescope.setup {
     path_display = { "smart" },
     file_ignore_patterns = { ".git/", "node_modules" },
 
-    mappings = {
+   mappings = {
       i = {
-        ["<Down>"] = actions.cycle_history_next,
-        ["<Up>"] = actions.cycle_history_prev,
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-      },
+        ['<C-u>'] = false,
+        ['<C-d>'] = false,
+      }, 
     },
   },
 }
+--Enable telescope fzf native, if installed
+pcall(require('telescope').load_extension, 'fzf')
